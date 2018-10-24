@@ -13,6 +13,7 @@ class Smoke(aetest.Testcase):
     def check_connect(self, testbed, vm_username, host_username, file_name):
         self.path_to_vm = 'sftp://localhost/home/{0}/{1}'.format(vm_username, file_name)
         self.path_to_host = '/home/{0}/{1}'.format(host_username, file_name)
+
         # Connect to VM and check
         self.vm = testbed.devices['vm']
         self.vm.connect()
