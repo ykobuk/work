@@ -1,6 +1,6 @@
 steps to run task_3
 
-1. Create virualenv
+1. Create virtualenv
 
 ```
 $ mkdir new_folder
