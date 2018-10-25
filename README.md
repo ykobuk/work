@@ -31,7 +31,7 @@ $ pip install -r requirements.txt
 write username, password, IP from task
 ```
 
-2. Run job_ez.py with arguments:
+2. Run job_ez.py with arguments in virtualenv:
 
 ```
 arguments:
