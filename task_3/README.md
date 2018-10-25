@@ -3,6 +3,7 @@ steps to run task_3
 1. Create virtualenv
 
 ```
+$ sudo apt-get install virtualenv
 $ mkdir new_folder
 $ cd new_folder/
 $ virtualenv -p python3.5 venv
