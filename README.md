@@ -28,7 +28,7 @@ $ pip install -r requirements.txt
 # task_3
 1.  my_testbed.yaml
 ```
-write username, password, IP from task
+- Write username, password, IP from task
 ```
 
 2. Run job_ez.py with arguments in virtualenv:
