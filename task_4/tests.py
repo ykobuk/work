@@ -1,3 +1,18 @@
+'''tests.py
+
+This test script is intended to looping of 'check' test as many times as many numbers in the 'mapping' dictionary for the given letter.
+
+Arguments:
+    This script requires one argument (letter) to be passed in from the job_file (job_tests.py)
+    letter: Have to write 'a' or 'b' or 'c' .
+
+Run script under easypy:
+    $ easypy job_tests.py --letter 'write "a" or "b" or "c"'
+
+'''
+
+__author__ = 'Yurii Kobuk'
+
 from ats import aetest
 
 from ats.aetest import loop, test, setup
@@ -11,7 +26,11 @@ mapping = {
 
 
 class Test(aetest.Testcase):
-
+    '''Testcase that takes one letter and ckecks if the letter is on mapping.
+    If the letter in on mapping the check function will make looping as many times
+    as many numbers in the 'mapping dictionary for the given number'
+    '''
+    
     @setup
     def setup(self, letter):
         if letter in mapping:
