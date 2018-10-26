@@ -40,4 +40,11 @@ arguments:
 --file_name - file name for creating and copying from VM to Host
 
 $ easypy job_ez.py -testbed_file my_testbed.yaml --vm_username 'vm_name' --host_username 'hostname' --file_name 'file_name'
+```
+
+# task_4
+1. In virtualenv:
+```
+  - Run with argument:$ easypy job_tests.py --letter 'write "a" or "b" or "c"'
+```
 
