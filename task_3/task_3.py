@@ -76,7 +76,7 @@ class MyTestcase(aetest.Testcase):
 
     @cleanup
     def clean_and_disconnect(self, vm_username, file_name):
-        # Delete files from VM and Host, and disconnect
+        ''' Delete files from VM and Host, and disconnect. '''
         self.futils.deletefile('{}.txt'.format(self.path_to_vm))
         self.futils.deletefile('{}_copy.txt'.format(self.path_to_vm))
         self.vm.execute('ls -la /home/{}/ | grep {}'.format(vm_username, file_name))
