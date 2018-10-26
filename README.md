@@ -10,6 +10,7 @@ $ virtualenv -p python3.5 venv
 $ source venv/bin/activate
 $ sudo apt-get install python3.5-dev
 $ pip install -r requirements.txt
+$ git clone https://github.com/asstelite/work.git
 ```
 
 # task_1
