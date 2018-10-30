@@ -49,3 +49,6 @@ $ easypy job_ez.py -testbed_file my_testbed.yaml --vm_username 'vm_name' --host_
   - Run with argument:$ easypy job_tests.py --letter 'write "a" or "b" or "c"'
 ```
 
+# task_5
+docker run -it -v $(pwd)/archive:/my-tests/archive my-tests easypy job_rabbit.py --word "any word"
+
