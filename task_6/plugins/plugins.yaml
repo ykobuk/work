@@ -1,0 +1,8 @@
+plugins:
+  CopyReport:
+    directory: './custom'
+    report_directory: './data'
+    enabled: True
+    module: save
+    order: 0.1
+
