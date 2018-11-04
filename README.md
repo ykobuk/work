@@ -56,3 +56,10 @@ $ easypy job_ez.py -testbed_file my_testbed.yaml --vm_username 'vm_name' --host_
 - sudo docker run -it -v $(pwd)/archive:/my-tests/archive asstelite/my-tests easypy job_rabbit.py --word "any word"
 The archive of report will be in folder $(pwd)/archive
 ```
+
+# task_6
+1. In terminal:
+```
+- easypy -configuration plugins/plugins.yaml job.py archive_dir data
+
+```
