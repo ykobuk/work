@@ -1,14 +1,16 @@
-# Python 3.5.2
+# Python 3.6.7
 
 Create virtualenv
-
 ```
+$ sudo add-apt-repository ppa:jonathonf/python-3.6
+$ sudo apt-get update
+$ sudo apt-get install python3.6
+$ sudo apt-get install python3.6-dev
 $ sudo apt-get install virtualenv
 $ mkdir new_folder
 $ cd new_folder/
-$ virtualenv -p python3.5 venv
+$ virtualenv -p python3.6 venv
 $ source venv/bin/activate
-$ sudo apt-get install python3.5-dev
 $ pip install -r requirements.txt
 $ git clone https://github.com/asstelite/work.git
 ```
