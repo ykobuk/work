@@ -4,8 +4,6 @@ from ats import aetest
 from ats.aetest import test, setup
 
 
-
-
 class Smoke(aetest.Testcase):
     
     @setup
@@ -29,4 +27,3 @@ class Smoke(aetest.Testcase):
 
 if __name__ == "__main__":
     aetest.main()
-

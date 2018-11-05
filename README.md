@@ -1,14 +1,16 @@
-# Python 3.5.2
+# Python 3.6.7
 
 Create virtualenv
-
 ```
+$ sudo add-apt-repository ppa:jonathonf/python-3.6
+$ sudo apt-get update
+$ sudo apt-get install python3.6
+$ sudo apt-get install python3.6-dev
 $ sudo apt-get install virtualenv
 $ mkdir new_folder
 $ cd new_folder/
-$ virtualenv -p python3.5 venv
+$ virtualenv -p python3.6 venv
 $ source venv/bin/activate
-$ sudo apt-get install python3.5-dev
 $ pip install -r requirements.txt
 $ git clone https://github.com/asstelite/work.git
 ```
@@ -55,4 +57,11 @@ $ easypy job_ez.py -testbed_file my_testbed.yaml --vm_username 'vm_name' --host_
 - sudo docker pull asstelite/my-tests
 - sudo docker run -it -v $(pwd)/archive:/my-tests/archive asstelite/my-tests easypy job_rabbit.py --word "any word"
 The archive of report will be in folder $(pwd)/archive
+```
+
+# task_6
+1. In terminal:
+```
+- easypy -configuration plugins/plugins.yaml job.py archive_dir data
+
 ```
