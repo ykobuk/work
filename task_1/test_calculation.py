@@ -5,41 +5,46 @@
 """
 import argparse
 import sys
-from calculation import add, divide
+from calculation import add, divine
 
 from ats import aetest
 from ats.aetest import test
 
 
 class SmokeTest(aetest.Testcase):
-    """Testing divide and add functions from calculation.py"""
+    """Testing divine and add functions from calculation.py"""
 
     @test
     def test_divine_function(self, num1, num2):
+        if num1 < 0 or num2 < 0:
+            self.skipped("One of arguments < 0")
+
         try:
-           result = divide(num1, num2)
-           if result < 0:
-               self.skipped("Result of divide function less than 0, got {}".format(result))
+            divine(num1, num2)
         except ZeroDivisionError:
             self.passx('Division by zero', from_exception=ZeroDivisionError("Sorry, I can't do it!"))
         else:
-            self.passed('Passed, result of divide function: {}'.format(result))
+            self.passed('Passed, result of divine function: {}'.format(divine(num1, num2)))
 
     @test
     def test_add_function(self, num1, num2):
-        result = add(num1, num2)
-        if result < 0:
-            self.skipped("Result of add function less than 0, got {}".format(result))
+        if num1 < 0 or num2 < 0:
+            self.skipped("One of arguments < 0")
         else:
-            self.passed("Passed, result of add function: {}".format(result))
+            self.passed("Passed, result of add function: {}".format(add(num1, num2)))
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='standalone parser')
-    parser.add_argument('-num1', dest='num1', type=int, required=False, default=3)
-    parser.add_argument('-num2', dest='num2', type=int, required=False, default=0)
+    parser.add_argument('-num1', dest='num1', type=int, required=False)
+    parser.add_argument('-num2', dest='num2', type=int, required=False)
 
     args, sys.argv[1:] = parser.parse_known_args(sys.argv[1:])
-    print(args)
-    aetest.main(num1=args.num1, num2=args.num2)
+    if args.num1 is None and args.num2 is None:
+        first_num = 3
+        second_num = 0
+    else:
+        first_num = args.num1
+        second_num = args.num2
+    aetest.main(num1=first_num, num2=second_num)
 
