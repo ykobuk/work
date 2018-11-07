@@ -29,12 +29,14 @@ $ git clone https://github.com/asstelite/work.git
 ```
 
 # task_3
-1.  my_testbed.yaml
+1. In terminal $ pip install sh
+
+2.  my_testbed.yaml
 ```
 - Write username, password, IP from task
 ```
 
-2. Run job_ez.py with arguments in virtualenv:
+3. Run job_ez.py with arguments in virtualenv:
 
 ```
 arguments:
