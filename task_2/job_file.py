@@ -6,9 +6,11 @@ from datetime import datetime, timedelta
 from ats.easypy import Task
 
 
-parser = argparse.ArgumentParser(description='Two number')
+parser = argparse.ArgumentParser(description='Task_2')
 parser.add_argument('--num1', type=float, required=True)
 parser.add_argument('--num2', type=float, required=True)
+# It isn't required, but if you want to see TimeoutError, run this script with --time 60
+parser.add_argument('--time', type=int, default=1)
 
 
 def main(runtime):
@@ -38,15 +40,20 @@ def main(runtime):
                   num1=args.num1,
                   num2=args.num2)
 
+    counter = timedelta(minutes=1)
     all_tasks = [task_1, task_2, task_3, task_4]
     for task in all_tasks:
         task.start()
 
-    counter = timedelta(minutes=5)
-    all_tasks = [task_1, task_2, task_3, task_4]
     while counter:
         if any(task.is_alive() for task in all_tasks):
-            time.sleep(3)
-            counter -= timedelta(seconds=1)
+            time.sleep(5)
+            counter -= timedelta(seconds=args.time)
+            print(counter)
         else:
             break
+    else:
+        for task in all_tasks:
+            task.terminate()
+            task.join()
+        raise TimeoutError('Not all tasks finished in 1 minutes!')
