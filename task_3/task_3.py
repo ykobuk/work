@@ -1,4 +1,4 @@
-'''task_3.py
+""" task_3.py
 
 This testscript is intended to check copying file from VM to Host and in reverse order.
 
@@ -11,15 +11,17 @@ Arguments:
      address: write IP,
      username: write_username,
      password: write_password) with the data given in the task.
-    testbed: my_testbed.yaml
+     testbed: my_testbed.yaml
     
     vm_username: username of VM for connecting
     host_username: username of Host
     file_name: file name for creating and copying from VM to Host
 
 You have to run script under easypy:
-    $ easypy job_ez.py -testbed_file my_testbed.yaml --vm_username 'vm_name' --host_username 'hostname' --file_name 'file_name'
-'''
+    $ easypy job_ez.py -testbed_file my_testbed.yaml --vm_username 'vm_name'
+                                                     --host_username 'hostname'
+                                                     --file_name 'file_name'
+"""
 
 __author__ = 'Yurii Kobuk'
 
@@ -33,8 +35,9 @@ from sh import touch, rm
 
 
 class MyTestcase(aetest.Testcase):
-    '''Test case that connects to VM, creates, copies and deletes file for copying from VM to Host and in reverse order'''
-
+    """Test case that connects to VM, creates,
+    copies and deletes file for copying from VM to Host and in reverse order
+    """
     @setup
     def check_connect(self, testbed, vm_username, host_username, file_name):
         self.path_to_vm = 'sftp://localhost/home/{0}/{1}'.format(vm_username, file_name)
@@ -46,8 +49,11 @@ class MyTestcase(aetest.Testcase):
         self.vm.execute('ping -c 4 google.com')
         self.vm.execute('ifconfig')
 
-        # File for copy from VM to Host
+        # Creates file for copy from VM to Host
         self.vm.execute('touch /home/{}/{}.txt'.format(vm_username, file_name))
+
+        # Creates file for copy from host to VM
+        touch("{}_copy.txt".format(self.path_to_host))
 
         # Check new file
         self.vm.execute('ls -la /home/{}/ | grep {}'.format(vm_username, file_name))
@@ -65,9 +71,6 @@ class MyTestcase(aetest.Testcase):
 
     @test
     def copy_from_local_to_vm(self, file_name):
-        # Creates file for copy from host to VM
-        touch("{}_copy.txt".format(self.path_to_host))
-
         # Copying file from Host to VM
         self.futils.copyfile(source='{}_copy.txt'.format(self.path_to_host),
                              destination='{}_copy.txt'.format(self.path_to_vm))
@@ -76,7 +79,7 @@ class MyTestcase(aetest.Testcase):
 
     @cleanup
     def clean_and_disconnect(self, vm_username, file_name):
-        ''' Delete files from VM and Host, and disconnect. '''
+        """ Delete files from VM and Host, and disconnect. """
         self.futils.deletefile('{}.txt'.format(self.path_to_vm))
         self.futils.deletefile('{}_copy.txt'.format(self.path_to_vm))
         self.vm.execute('ls -la /home/{}/ | grep {}'.format(vm_username, file_name))
