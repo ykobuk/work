@@ -85,7 +85,9 @@ class MyTestcase(aetest.Testcase):
         self.vm.execute('ls -la /home/{}/ | grep {}'.format(vm_username, file_name))
         rm('{}.txt'.format(self.path_to_host))
         rm('{}_copy.txt'.format(self.path_to_host))
-        self.vm.destroy()
+        self.vm.disconnect_all()
+        self.futils.close()
+        print(self.vm.is_connected(), "=============================")
         self.passed('files {0}, {0}_copy were deleted'.format(file_name))
 
 
