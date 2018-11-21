@@ -7,4 +7,3 @@ rep_dir = testbed.custom['report_directory']
 
 def main():
     easypy.run(testscript='test.py', directory=sour_dir, report_directory=rep_dir)
-

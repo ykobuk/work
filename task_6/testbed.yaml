@@ -3,4 +3,3 @@ testbed:
   custom:
     directory: ./custom
     report_directory: ./data
-

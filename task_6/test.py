@@ -7,12 +7,9 @@ from ats.aetest import test, setup
 class Smoke(aetest.Testcase):
     
     @setup
-    def create(self, directory, report_directory):
+    def create(self, directory):
         if not os.path.exists(directory):
             os.makedirs(directory)
-            
-        if not os.path.exists(report_directory):
-            os.makedirs(report_directory)
 
     @test
     def foo(self, directory):
