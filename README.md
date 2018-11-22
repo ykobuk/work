@@ -62,6 +62,6 @@ The archive of report will be in folder $(pwd)/archive
 # task_6
 1. In terminal:
 ```
-- easypy -configuration plugins/plugins.yaml job.py archive_dir data
+- easypy -configuration plugins/plugins.yaml job.py
 
 ```
