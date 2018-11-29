@@ -2,6 +2,7 @@ import os
 from ats import aetest
 
 from ats.aetest import test, setup
+from pyats.topology.loader import load
 
 
 class Smoke(aetest.Testcase):
