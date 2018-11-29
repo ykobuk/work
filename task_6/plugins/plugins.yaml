@@ -1,7 +1,6 @@
 plugins:
   CopyReport:
-    directory: './custom'
-    report_directory: './data'
+    directory: './txt'
     enabled: True
     module: save
     order: 0.1
