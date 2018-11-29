@@ -63,6 +63,7 @@ The archive of report will be in folder $(pwd)/archive
 1. In terminal:
 ```
 - export PYTHONPATH=${PWD}/plugins:${PYTHONPATH} 
-- easypy -configuration plugins/plugins.yaml job.py
+- easypy job.py -testbed_file testbed.yaml -configuration plugins.yaml
+
 
 ```
