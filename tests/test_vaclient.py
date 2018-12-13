@@ -43,7 +43,7 @@ class FakeSSHClient:
         # self.raise_exception = raise_exception
         # self.excaption_name = excaption_name
 
-    def connect(self, username='pyastt', password='ppyastpyast', *args):
+    def connect(self, *args):
         pass
 
     def set_missing_host_key_policy(self, policy):
@@ -70,7 +70,7 @@ class TestPar(unittest.TestCase):
                                'SSHClient',
                                mock.Mock(return_value=FakeSSHClient())):
 
-            con = VAClient(ip='192.168.242.44')
+            con = VAClient(ip='192.168.242.22')
             self.assertTrue(con.connect())
 
 
